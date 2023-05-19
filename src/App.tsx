@@ -1,13 +1,17 @@
 import { Routes, Route } from "react-router-dom";
 import { Home, About, NotFound } from "./Views";
+import { NavBar } from "./Components";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 }
 
