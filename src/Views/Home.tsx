@@ -1,11 +1,12 @@
 import { Flex } from "@chakra-ui/react";
-import { InitialHome, Services } from "../Components";
+import { InitialHome, Services, Proyects } from "../Components";
 
 const Home = () => {
   return (
-    <Flex direction='column' justify='center'>
+    <Flex direction="column" justify="center">
       <InitialHome />
       <Services />
+      <Proyects />
     </Flex>
   );
 };
