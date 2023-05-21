@@ -1,6 +1,6 @@
 import { Flex, Box, Heading } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { DarkModeButton } from "../DarkModeButton/DarkModeButton";
+import { DarkModeButton } from "./DarkModeButton";
 
 const NavBar = () => {
   return (
