@@ -1,4 +1,4 @@
-import { FaSun, FaMoon } from "react-icons/fa";
+import { BsSunFill, BsFillMoonStarsFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import {useColorMode } from "@chakra-ui/react";
 
@@ -36,7 +36,7 @@ export const DarkModeButton = () => {
           zIndex: 1,
         }}
       >
-        <FaMoon color="#1a1a1a" />
+        <BsFillMoonStarsFill color="#1a1a1a" />
       </motion.div>
       <motion.div
         style={{
@@ -47,7 +47,7 @@ export const DarkModeButton = () => {
           zIndex: 1,
         }}
       >
-        <FaSun color="#dedede" />
+        <BsSunFill color="#dedede" />
       </motion.div>
       <motion.div
         variants={buttonVariants}
