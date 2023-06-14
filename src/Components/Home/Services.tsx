@@ -37,7 +37,7 @@ const Services = () => {
   return (
     <Box mb="4rem" mt="2rem">
       <Heading fontSize="2.5rem" textAlign="center" mb="2rem">
-        Realizamos estos Servicios
+        Tambien realizamos estos Servicios
       </Heading>
       <Flex justify="center" align="center" gap="2rem">
         {services.map((service) => (

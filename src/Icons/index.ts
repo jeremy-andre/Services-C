@@ -1,4 +1,5 @@
 import { AiOutlineMenu } from "react-icons/ai";
-import { BiArrowFromLeft } from "react-icons/bi";
+import { BiArrowFromLeft, BiDownArrow } from "react-icons/bi";
+import { LuArrowDownWideNarrow, LuArrowDownAZ } from "react-icons/lu";
 
-export { AiOutlineMenu, BiArrowFromLeft };
+export { AiOutlineMenu, BiDownArrow, LuArrowDownAZ, LuArrowDownWideNarrow, BiArrowFromLeft };

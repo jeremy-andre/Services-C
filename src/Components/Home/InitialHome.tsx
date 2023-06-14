@@ -1,11 +1,12 @@
 import { Box, Center, Heading, Text, Button, Image } from "@chakra-ui/react";
 import { BiArrowFromLeft } from "react-icons/bi";
+import { Link } from "react-router-dom";
 const Showcase = () => {
   return (
     <Box position="relative">
       <Image
         src="https://res.cloudinary.com/dzxiqsg9i/image/upload/v1684622293/Servicesc/Dise%C3%B1o_sin_t%C3%ADtulo_jl3slq.png"
-        w="100vw"
+        w="100%"
         h="30rem"
         maxW="120rem"
       />
@@ -29,15 +30,17 @@ const Showcase = () => {
         <Text fontSize="lg" mt={4}>
           Descripción del Showcase
         </Text>
-        <Button
-          rightIcon={<BiArrowFromLeft />}
-          colorScheme="white"
-          size="lg"
-          mt="2rem"
-          color="#1a1a1a"
-        >
-          Botón del Showcase
-        </Button>
+        <Link to="/products">
+          <Button
+            rightIcon={<BiArrowFromLeft />}
+            colorScheme="white"
+            size="lg"
+            mt="2rem"
+            color="#1a1a1a"
+          >
+            Botón del Showcase
+          </Button>
+        </Link>
       </Center>
     </Box>
   );

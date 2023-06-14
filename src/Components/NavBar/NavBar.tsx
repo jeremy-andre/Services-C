@@ -1,6 +1,7 @@
 import { Flex, Box, Heading, useColorModeValue } from "@chakra-ui/react";
 import { DarkModeButton } from "./DarkModeButton";
 import MenuButton from "./MenuButton";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -10,20 +11,22 @@ const NavBar = () => {
       justify="space-between"
       p={4}
       boxShadow="0px 4px 8px rgba(0, 0, 0, 0.2)"
-      position='fixed'
-      w='100vw'
-      h='4rem'
+      position="fixed"
+      w="100vw"
+      h="4rem"
       bg={useColorModeValue("#dedede", "#1a1a1a")}
-      zIndex='1'
+      zIndex="1"
     >
       <Box mx="1rem">
-        <Heading size="md" color="#cc5823">
-          Logo
-        </Heading>
+        <Link to="/">
+          <Heading size="md" color="#cc5823">
+            Logo
+          </Heading>
+        </Link>
       </Box>
       <Flex gap="1rem" mx="1rem" justify="center" align="center">
-        <MenuButton />
         <DarkModeButton />
+        <MenuButton />
       </Flex>
     </Flex>
   );
