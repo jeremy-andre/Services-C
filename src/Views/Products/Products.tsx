@@ -1,17 +1,40 @@
 import { Flex } from "@chakra-ui/react";
-import Filter from "./FilterProducts/Filter";
-import BreadCrumps from "./BreadCrumps/BreadCrumps";
+import { useParams } from "react-router-dom";
+import Filter from "./Components/FilterProducts/Filter";
+import BreadCrumps from "./Components/BreadCrumps/BreadCrumps";
+import Categories from "./Components/Categories/Categories";
+import ItemsContainer from "./Components/ItemsContainer/ItemsContainer";
 
 const Products = () => {
+  const { category } = useParams();
+  const categoryName = category || "sin categoria";
+
+  // Validar si la categoría existe o no ----♫----
+  const validCategories = [
+    "cocina",
+    "closet",
+    "escritorios",
+    "estantes",
+    "repisas",
+    "paredes-decorativas",
+    "muebles-de-aseo",
+    "aire-libre",
+    "sin categoria",
+  ];
+  const categoryExists = validCategories.includes(categoryName);
+  if (!categoryExists)
+    return <Flex> NO EXISTE ALGUNA CATEGORIA CON {categoryName}</Flex>;
+
   return (
     <Flex
       my="2rem"
-      // bg="green"
-      w={{ base: "25rem", md: "45rem", lg: "55rem", xl: "80rem" }}
       direction="column"
+      mx={{ base: "1rem", md: "3rem" }}
+      align="center"
     >
-      <BreadCrumps as="red" />
-      <Filter />
+      <BreadCrumps />
+      {categoryName === "sin categoria" ? <Categories /> : <Filter />}
+      <ItemsContainer />
     </Flex>
   );
 };

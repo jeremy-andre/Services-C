@@ -10,7 +10,7 @@ function Footer() {
       bg="#1a1a1a"
     >
       <Flex justify="center" align="center">
-        <Text fontSize="sm" color="gray.400">
+        <Text fontSize="sm" color="gray.400" textAlign='center'>
           © {new Date().getFullYear()} Empresa de Muebles. Todos los derechos
           reservados.
         </Text>

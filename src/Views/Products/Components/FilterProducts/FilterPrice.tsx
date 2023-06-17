@@ -10,7 +10,7 @@ import {
   RangeSliderThumb,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { BiDownArrow } from "../../../Icons";
+import { BiDownArrow } from "../../../../Icons";
 import { useState } from "react";
 
 interface FilterPriceProps {

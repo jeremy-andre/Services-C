@@ -1,6 +1,6 @@
 import { Flex, Text, Fade, Button, useColorModeValue } from "@chakra-ui/react";
 import FilterPrice from "./FilterPrice";
-import { LuArrowDownWideNarrow, LuArrowDownAZ } from "../../../Icons";
+import { LuArrowDownWideNarrow, LuArrowDownAZ } from "../../../../Icons";
 
 const Filter = () => {
   return (
@@ -9,6 +9,7 @@ const Filter = () => {
       borderBottom="1px"
       borderColor={useColorModeValue("#bebebe", "#2a2a2a")}
       pb="1rem"
+      maxW='80rem' w='100%'
     >
       <Flex gap="0.5rem" align="center">
         <Text fontWeight="bold">Filtros</Text>
