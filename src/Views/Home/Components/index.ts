@@ -1,4 +1,4 @@
-import Design from "./Design";
+import CategoriesHome from "./CategoriesHome";
 import Showcase from "./Showcase";
 import Services from "./Services";
-export { Design, Showcase, Services };
+export { CategoriesHome, Showcase, Services };

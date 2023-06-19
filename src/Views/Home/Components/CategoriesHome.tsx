@@ -1,6 +1,7 @@
-import { Flex, Box, Text, Grid, Link } from "@chakra-ui/react";
+import { Flex, Text, Heading, Link, Grid, Button } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { Link as RouterLink } from "react-router-dom";
+import { FiArrowUpRight } from "../../../Icons";
 
 interface Designs {
   name: string;
@@ -11,18 +12,11 @@ interface Designs {
 
 const designs: Designs[] = [
   {
-    name: "cocina",
+    name: "repisas",
     image:
-      "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686710406/Servicesc/Cocina_jwqyaa.jpg",
-    url: "cocina",
-    active: false,
-  },
-  {
-    name: "closet",
-    image:
-      "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686711309/Servicesc/Closet_eysodd.jpg",
-    url: "closet",
-    active: false,
+      "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712423/Servicesc/Ledge_x2lnuh.jpg",
+    url: "repisas",
+    active: true,
   },
   {
     name: "escritorios",
@@ -39,27 +33,6 @@ const designs: Designs[] = [
     active: false,
   },
   {
-    name: "repisas",
-    image:
-      "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712423/Servicesc/Ledge_x2lnuh.jpg",
-    url: "repisas",
-    active: true,
-  },
-  {
-    name: "paredes decorativas",
-    image:
-      "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712896/Servicesc/Pared_Decorative_flgqbo.jpg",
-    url: "paredes-decorativas",
-    active: false,
-  },
-  {
-    name: "muebles de aseo",
-    image:
-      "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686714288/Servicesc/Mueble_Ba%C3%B1o_ez0ew9.jpg",
-    url: "muebles-de-aseo",
-    active: false,
-  },
-  {
     name: "Aire Libre",
     image:
       "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686713190/Servicesc/Mueble_JArdin_dfy0aa.jpg",
@@ -68,9 +41,12 @@ const designs: Designs[] = [
   },
 ];
 
-const Categories = () => {
+const CategoriesHome = () => {
   return (
-    <Box maxW="80rem" w="100%">
+    <Flex my="3rem" direction="column" maxW="80rem" w="100%" gap="3rem">
+      <Heading w="100%" mx={{ base: "1rem", md: "3rem" }}>
+        Categorias más Populares
+      </Heading>
       <Grid
         templateColumns={{
           base: "repeat(2, 1fr)",
@@ -79,6 +55,7 @@ const Categories = () => {
           xl: "repeat(4, 1fr)",
         }}
         gap={{ base: "1rem", md: "1rem", lg: "1.5rem", xl: "1.5rem" }}
+        mx={{ base: "1rem", md: "3rem" }}
       >
         {designs.map((design) => (
           <motion.div
@@ -118,8 +95,14 @@ const Categories = () => {
           </motion.div>
         ))}
       </Grid>
-    </Box>
+      <Flex justify='center'>
+        <Button as={RouterLink} to="/products" gap="0.5rem">
+          <Text>Ver mas categorías</Text>
+          <FiArrowUpRight />
+        </Button>
+      </Flex>
+    </Flex>
   );
 };
 
-export default Categories;
+export default CategoriesHome;

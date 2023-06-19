@@ -19,7 +19,7 @@ const MenuButtonExample = () => {
   };
 
   return (
-    <Flex justify="end">
+    <Flex justify="end" display={{ base: "flex", lg: "none" }}>
       <Button onClick={handleToggleMenu}>
         <AiOutlineMenu size="1.5rem" />
       </Button>

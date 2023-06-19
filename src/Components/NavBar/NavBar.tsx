@@ -1,7 +1,15 @@
-import { Flex, Box, Heading, useColorModeValue } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  Heading,
+  useColorModeValue,
+  Button,
+} from "@chakra-ui/react";
 import { DarkModeButton } from "./DarkModeButton";
 import MenuButton from "./MenuButton";
 import { Link } from "react-router-dom";
+import { AiOutlineSearch } from "../../Icons";
+import CartIcon from "./IconsNavbar/CartIcon";
 
 const NavBar = () => {
   return (
@@ -14,7 +22,10 @@ const NavBar = () => {
       position="fixed"
       w="100vw"
       h="4rem"
-      bg={useColorModeValue("#dedede", "#1a1a1a")}
+      bg={useColorModeValue(
+        "rgba(222, 222, 222, 0.6)",
+        "rgba(26, 26, 26, 0.6)"
+      )}
       zIndex="1"
     >
       <Box mx="1rem">
@@ -24,7 +35,11 @@ const NavBar = () => {
           </Heading>
         </Link>
       </Box>
-      <Flex gap="1rem" mx="1rem" justify="center" align="center">
+      <Flex gap="1.5rem" mx="1rem" justify="center" align="center">
+        <Flex>
+          <AiOutlineSearch size="1.5rem" />
+        </Flex>
+        <CartIcon />
         <DarkModeButton />
         <MenuButton />
       </Flex>

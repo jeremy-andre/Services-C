@@ -11,14 +11,14 @@ const Products = () => {
 
   // Validar si la categoría existe o no ----♫----
   const validCategories = [
-    "cocina",
-    "closet",
     "escritorios",
-    "estantes",
     "repisas",
-    "paredes-decorativas",
-    "muebles-de-aseo",
-    "aire-libre",
+    // "cocina",
+    // "closet",
+    // "estantes",
+    // "paredes-decorativas",
+    // "muebles-de-aseo",
+    // "aire-libre",
     "sin categoria",
   ];
   const categoryExists = validCategories.includes(categoryName);
@@ -34,7 +34,7 @@ const Products = () => {
     >
       <BreadCrumps />
       {categoryName === "sin categoria" ? <Categories /> : <Filter />}
-      <ItemsContainer />
+      {categoryName !== "sin categoria" && <ItemsContainer />}
     </Flex>
   );
 };
