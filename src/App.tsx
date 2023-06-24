@@ -1,9 +1,8 @@
 import { Routes, Route } from "react-router-dom";
-import { Home, About, Products, NotFound } from "./Views";
+import { Home, About, Products, Cart, NotFound } from "./Views";
 
 import { NavBar, Footer } from "./Components";
 import { Flex } from "@chakra-ui/react";
-import Categories from "./Views/Products/Components/Categories/Categories";
 
 function App() {
   return (
@@ -17,6 +16,7 @@ function App() {
             <Route index element={<Products />} />
             <Route path="/products/:category" element={<Products />} />
           </Route>
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Flex>

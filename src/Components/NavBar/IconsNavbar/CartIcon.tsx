@@ -9,8 +9,11 @@ import {
   DrawerCloseButton,
   useDisclosure,
   Button,
+  useColorModeValue,
+  Text,
 } from "@chakra-ui/react";
 import { AiOutlineShoppingCart } from "../../../Icons";
+import { Link as RouterLink } from "react-router-dom";
 
 type Props = {};
 
@@ -23,17 +26,34 @@ const CartIcon = (props: Props) => {
       </Flex>
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent bg={useColorModeValue("#ffffff", "#1a1a1a")}>
           <DrawerCloseButton />
           <DrawerHeader>Mis Productos</DrawerHeader>
 
-          <DrawerBody>IS HERE BRO</DrawerBody>
+          <DrawerBody></DrawerBody>
 
           <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={onClose}>
-              Cancel
+            <Flex direction="column" w="100%" gap='1rem'>
+              <Flex justify="space-between">
+                <Text>Subtotal</Text>
+                <Text>S/.100.00</Text>
+              </Flex>
+              <Flex justify="space-between">
+                <Text>Total</Text>
+                <Text>S/.100.00</Text>
+              </Flex>
+            </Flex>
+          </DrawerFooter>
+          <DrawerFooter>
+            <Button
+              as={RouterLink}
+              to="/cart"
+              w="100%"
+              colorScheme="green"
+              onClick={onClose}
+            >
+              Ir a mi Carrito
             </Button>
-            <Button colorScheme="blue">Save</Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

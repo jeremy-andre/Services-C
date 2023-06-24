@@ -7,7 +7,7 @@ const theme = extendTheme({
       text: "#ffffff",
     },
     light: {
-      background: "#dedede",
+      background: "fff",
       text: "#000000",
     },
   },

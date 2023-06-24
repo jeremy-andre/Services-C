@@ -95,8 +95,8 @@ const CategoriesHome = () => {
           </motion.div>
         ))}
       </Grid>
-      <Flex justify='center'>
-        <Button as={RouterLink} to="/products" gap="0.5rem">
+      <Flex justify="center">
+        <Button as={RouterLink} to="/products" gap="0.5rem" colorScheme="green">
           <Text>Ver mas categorías</Text>
           <FiArrowUpRight />
         </Button>

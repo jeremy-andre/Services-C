@@ -1,11 +1,35 @@
-import { Flex, Link, Text, Image, Box, Button } from "@chakra-ui/react";
-import { motion } from "framer-motion";
-import { Link as RouterLink } from "react-router-dom";
+import { Flex, Text, Image, Box, Button } from "@chakra-ui/react";
 import { AiOutlineShoppingCart } from "../../../../Icons";
+// import { pushToCart } from "../../../../redux/actions";
+// import { useDispatch } from "react-redux";
+// import { useAppDispatch } from "../../../../redux/hooks";
+import { useSelector, useDispatch } from "react-redux";
+import { incrementCounter, decrementCounter } from "../../../../redux/actions";
+import { RootState } from "../../../../redux/reducers/reducers";
 
 type Props = {};
 
 const ItemCard = (props: Props) => {
+  // const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    // dispatch(pushToCart());
+  };
+  //--------------------------------------------------
+
+  const dispatch = useDispatch();
+  const counters = useSelector((state: RootState) => state.counter.count);
+  console.log(counters);
+
+  const handleIncrement = () => {
+    dispatch(incrementCounter(counters + 1));
+  };
+
+  const handleDecrement = () => {
+    dispatch(decrementCounter(counters - 1));
+  };
+  //--------------------------------------------------
+
   return (
     <Box>
       <Flex
@@ -34,11 +58,16 @@ const ItemCard = (props: Props) => {
             {/* {design.name} */} S/. 100.00
           </Text>
           <Flex justify="center" align="center">
-            <Button gap="0.5rem">
+            <Button gap="0.5rem" onClick={handleAddToCart}>
               <Text>Añadir</Text>
               <AiOutlineShoppingCart />
             </Button>
           </Flex>
+          {/* <Flex>
+            <Text>Counter: {counters}</Text>
+            <Button onClick={handleIncrement}>Increment</Button>
+            <Button onClick={handleDecrement}>Decrement</Button>
+          </Flex> */}
         </Flex>
       </Flex>
     </Box>
