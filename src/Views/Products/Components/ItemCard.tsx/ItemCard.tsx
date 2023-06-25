@@ -1,34 +1,25 @@
 import { Flex, Text, Image, Box, Button } from "@chakra-ui/react";
 import { AiOutlineShoppingCart } from "../../../../Icons";
-// import { pushToCart } from "../../../../redux/actions";
 // import { useDispatch } from "react-redux";
 // import { useAppDispatch } from "../../../../redux/hooks";
-import { useSelector, useDispatch } from "react-redux";
-import { incrementCounter, decrementCounter } from "../../../../redux/actions";
-import { RootState } from "../../../../redux/reducers/reducers";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../../redux/actions";
+import { Item } from "../../../../redux/types";
 
-type Props = {};
-
-const ItemCard = (props: Props) => {
+const ItemCard = (props: Item) => {
   // const dispatch = useDispatch();
 
-  const handleAddToCart = () => {
-    // dispatch(pushToCart());
+  const producto = {
+    id: props.id,
+    image: props.image,
+    name: props.name,
+    price: props.price,
   };
-  //--------------------------------------------------
 
   const dispatch = useDispatch();
-  const counters = useSelector((state: RootState) => state.counter.count);
-  console.log(counters);
-
-  const handleIncrement = () => {
-    dispatch(incrementCounter(counters + 1));
+  const handleAddToCart = () => {
+    dispatch(addToCart(producto));
   };
-
-  const handleDecrement = () => {
-    dispatch(decrementCounter(counters - 1));
-  };
-  //--------------------------------------------------
 
   return (
     <Box>
@@ -37,25 +28,22 @@ const ItemCard = (props: Props) => {
         direction="column"
         //   filter={design.active ? "none" : "grayscale(90%)"}
       >
-        <Image
-          src="https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686714288/Servicesc/Mueble_Ba%C3%B1o_ez0ew9.jpg"
-          alt="cardItem"
-        />
+        <Image src={props.image} alt="cardItem" aspectRatio={1} />
         <Text
           fontWeight="thin"
           py="1rem"
           fontSize={{ base: "1rem", md: "1.2rem" }}
           wordBreak="break-all"
         >
-          {/* {design.name} */} Vanitorios
+          {props.name}
         </Text>
         <Flex justify="space-between" align="center">
           <Text
-            fontWeight="semibold"
+            fontWeight="normal"
             py="1rem"
             fontSize={{ base: "1rem", md: "1.2rem" }}
           >
-            {/* {design.name} */} S/. 100.00
+            S/. {props.price}.00
           </Text>
           <Flex justify="center" align="center">
             <Button gap="0.5rem" onClick={handleAddToCart}>
@@ -63,11 +51,6 @@ const ItemCard = (props: Props) => {
               <AiOutlineShoppingCart />
             </Button>
           </Flex>
-          {/* <Flex>
-            <Text>Counter: {counters}</Text>
-            <Button onClick={handleIncrement}>Increment</Button>
-            <Button onClick={handleDecrement}>Decrement</Button>
-          </Flex> */}
         </Flex>
       </Flex>
     </Box>

@@ -1,18 +1,21 @@
 import { combineReducers } from "redux";
 import { counterReducer } from "./counterReducer";
-import { CounterState } from "../types";
-// import { cartReducer } from "./cartReducer";
+import { cartReducer } from "./cartReducer";
+import { CounterState, CartState, ItemsState } from "../types";
+import { itemsReducer } from "./itemsReducer";
 
 // Define una interfaz para el estado global
 export interface RootState {
   counter: CounterState;
-  // cart: CartState;
+  cart: CartState;
+  items: ItemsState;
 }
 
 // Combina los reducers individuales en un reducer raíz
 const rootReducer = combineReducers<RootState>({
   counter: counterReducer,
-  // cart: cartReducer,
+  cart: cartReducer,
+  items: itemsReducer,
 });
 
 export default rootReducer;

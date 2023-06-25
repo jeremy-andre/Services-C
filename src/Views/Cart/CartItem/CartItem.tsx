@@ -1,20 +1,27 @@
 import { Flex, Box, Image, Text, Select, Button } from "@chakra-ui/react";
 import { AiOutlineClose } from "../../../Icons";
+import { Item } from "../../../redux/types";
 
-type Props = {};
+import { useDispatch } from "react-redux";
+import { PopToCart } from "../../../redux/actions";
 
-const CartItem = (props: Props) => {
+const CartItem = (props: Item) => {
+  const dispatch = useDispatch();
+  const handlePopToCart = () => {
+    dispatch(PopToCart(props.id));
+  };
+
   return (
     <Flex align="center" gap="5rem">
       <Image
-        src="https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686714288/Servicesc/Mueble_Ba%C3%B1o_ez0ew9.jpg"
+        src={props.image}
         alt="cardItem"
         w="10rem"
         aspectRatio="1"
         borderRadius="1rem"
       />
       <Flex direction="column">
-        <Text> Vanitorio</Text>
+        <Text> {props.name} </Text>
         <Text> personalizable, 1m</Text>
       </Flex>
       <Box display="inline-block">
@@ -24,8 +31,8 @@ const CartItem = (props: Props) => {
           <option value="3">3</option>
         </Select>
       </Box>
-      <Text>S/100.00</Text>
-      <Flex>
+      <Text>S/. {props.price}.00</Text>
+      <Flex onClick={handlePopToCart} cursor="pointer">
         <AiOutlineClose size="1.2rem" />
       </Flex>
     </Flex>

@@ -9,7 +9,7 @@ import { DarkModeButton } from "./DarkModeButton";
 import MenuButton from "./MenuButton";
 import { Link } from "react-router-dom";
 import { AiOutlineSearch } from "../../Icons";
-import CartIcon from "./IconsNavbar/CartIcon";
+import CartIcon from "./IconsNavbar/CartIcon/CartIcon";
 
 const NavBar = () => {
   return (
