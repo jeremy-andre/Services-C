@@ -4,7 +4,7 @@ import { AiOutlinePlus, AiOutlineLine } from "../../../../Icons";
 
 type Props = {};
 
-const ProductsOffert = (props: Props) => {
+const ProductsNew = (props: Props) => {
   const productOfferts = [
     {
       id: 1,
@@ -35,9 +35,9 @@ const ProductsOffert = (props: Props) => {
   };
 
   return (
-    <Flex direction="column" pb="1rem" pt="1.5rem" gap="1.5rem">
+    <Flex direction="column" pb="1rem" gap="1.5rem">
       <Flex justify="space-between" w="100%">
-        <Text>Productos en Oferta</Text>
+        <Text>Nuevos Productos</Text>
         <Flex cursor="pointer" onClick={handleOnMin}>
           {show ? (
             <AiOutlineLine size="1.2rem" />
@@ -68,4 +68,4 @@ const ProductsOffert = (props: Props) => {
   );
 };
 
-export default ProductsOffert;
+export default ProductsNew;

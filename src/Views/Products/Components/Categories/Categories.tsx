@@ -11,6 +11,20 @@ interface Designs {
 
 const designs: Designs[] = [
   {
+    name: "repisas",
+    image:
+      "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712423/Servicesc/Ledge_x2lnuh.jpg",
+    url: "repisas",
+    active: true,
+  },
+  {
+    name: "escritorios",
+    image:
+      "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686711554/Servicesc/Desk_lyx27n.jpg",
+    url: "escritorios",
+    active: true,
+  },
+  {
     name: "cocina",
     image:
       "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686710406/Servicesc/Cocina_jwqyaa.jpg",
@@ -25,25 +39,11 @@ const designs: Designs[] = [
     active: false,
   },
   {
-    name: "escritorios",
-    image:
-      "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686711554/Servicesc/Desk_lyx27n.jpg",
-    url: "escritorios",
-    active: true,
-  },
-  {
     name: "estantes",
     image:
       "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712046/Servicesc/Estante_h3ofmg.jpg",
     url: "estantes",
     active: false,
-  },
-  {
-    name: "repisas",
-    image:
-      "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712423/Servicesc/Ledge_x2lnuh.jpg",
-    url: "repisas",
-    active: true,
   },
   {
     name: "paredes decorativas",
@@ -108,8 +108,9 @@ const Categories = () => {
                   color="#dedede"
                   fontWeight="bold"
                   textTransform="uppercase"
-                  py="1rem"
                   fontSize={{ base: "1rem", md: "1.2rem" }}
+                  textAlign="center"
+                  pb={{ base: "0.5rem", md: "1rem" }}
                 >
                   {design.name}
                 </Text>

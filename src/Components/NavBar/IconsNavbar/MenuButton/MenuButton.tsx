@@ -4,9 +4,10 @@ import { AiOutlineMenu } from "../../../../Icons";
 import { Link as RouterLink } from "react-router-dom";
 import SearchIcon from "../SearchIcon/SearchIcon";
 import ProductsOffert from "./ProductsOffert";
-import { AiOutlineShoppingCart } from "../../../../Icons";
+import { AiOutlineShoppingCart, BiCategoryAlt } from "../../../../Icons";
+import ProductsNew from "./ProductsNew";
 
-const MenuButtonExample = () => {
+const MenuButton = () => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -30,9 +31,30 @@ const MenuButtonExample = () => {
         >
           <SearchIcon />
           <ProductsOffert />
-          <Flex as={RouterLink} to="/cart" align="center" gap="1rem">
+          <ProductsNew />
+          <Flex
+            as={RouterLink}
+            to="/cart"
+            onClick={onToggle}
+            align="center"
+            justify="space-between"
+            gap="1rem"
+            mb="1rem"
+          >
             <Text>Ver mi Carrito</Text>
-            <AiOutlineShoppingCart />
+            <AiOutlineShoppingCart size="1.2rem" />
+          </Flex>
+          <Flex
+            as={RouterLink}
+            to="/products"
+            onClick={onToggle}
+            align="center"
+            justify="space-between"
+            gap="1rem"
+            mb="1rem"
+          >
+            <Text>Buscar por categoría</Text>
+            <BiCategoryAlt size="1.2rem" />
           </Flex>
         </Flex>
       </Collapse>
@@ -40,4 +62,4 @@ const MenuButtonExample = () => {
   );
 };
 
-export default MenuButtonExample;
+export default MenuButton;

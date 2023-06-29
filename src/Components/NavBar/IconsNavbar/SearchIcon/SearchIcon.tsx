@@ -5,7 +5,7 @@ type Props = {};
 
 const SearchIcon = (props: Props) => {
   return (
-    <Flex align="center" w={{ base: "100%", lg: "20rem" }}>
+    <Flex align="center" w={{ base: "100%", lg: "17rem" }}>
       <InputGroup>
         <InputRightElement pointerEvents="none">
           <AiOutlineSearch color="#dedede" size="1.5rem" />
