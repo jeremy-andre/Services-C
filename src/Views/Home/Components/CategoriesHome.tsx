@@ -44,7 +44,7 @@ const designs: Designs[] = [
 const CategoriesHome = () => {
   return (
     <Flex my="3rem" direction="column" maxW="80rem" w="100%" gap="3rem">
-      <Heading w="100%" mx={{ base: "1rem", md: "3rem" }}>
+      <Heading w="100%" px={{ base: "1rem", md: "3rem" }}>
         Categorias más Populares
       </Heading>
       <Grid

@@ -29,11 +29,12 @@ const CartIcon = (props: Props) => {
   return (
     <Flex>
       <Flex onClick={onOpen} cursor="pointer">
-        <AiOutlineShoppingCart size="1.5rem" />
+        <AiOutlineShoppingCart color='#dedede' size="1.5rem" />
         <Flex
           position="absolute"
           borderRadius="full"
           transform="translate(1.3rem, -1rem)"
+          color='#dedede'
         >
           {Math.min(cartItems.length, 9999).toLocaleString()}
         </Flex>

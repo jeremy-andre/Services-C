@@ -7,7 +7,7 @@ function Footer() {
       py="1.5rem"
       boxShadow="0px -4px 8px rgba(0, 0, 0, 0.2)"
       mt="auto"
-      bg="#0f0f0f"
+      bg="rgba(30, 30, 30, 1)"
     >
       <Flex justify="center" align="center">
         <Text fontSize="sm" color="gray.400" textAlign='center'>

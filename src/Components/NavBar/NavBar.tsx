@@ -4,12 +4,13 @@ import {
   Heading,
   useColorModeValue,
   Button,
+  Text,
 } from "@chakra-ui/react";
 import { DarkModeButton } from "./DarkModeButton";
-import MenuButton from "./MenuButton";
-import { Link } from "react-router-dom";
-import { AiOutlineSearch } from "../../Icons";
+import MenuButton from "./IconsNavbar/MenuButton/MenuButton";
+import { Link as RouterLink } from "react-router-dom";
 import CartIcon from "./IconsNavbar/CartIcon/CartIcon";
+import SearchIcon from "./IconsNavbar/SearchIcon/SearchIcon";
 
 const NavBar = () => {
   return (
@@ -19,28 +20,37 @@ const NavBar = () => {
       justify="space-between"
       boxShadow="0px 4px 8px rgba(0, 0, 0, 0.2)"
       position="fixed"
-      w="100vw"
+      w="100%"
       h="4rem"
-      bg={useColorModeValue(
-        "rgba(255, 255, 255, 0.6)",
-        "rgba(26, 26, 26, 0.6)"
-      )}
+      bg="rgba(30, 30, 30, 0.95)"
       zIndex="1"
-      px="2rem"
+      px={{ base: "1rem", lg: "3rem" }}
     >
-      <Box>
-        <Link to="/">
-          <Heading size="md" color="#cc5823">
-            Logo
-          </Heading>
-        </Link>
-      </Box>
-      <Flex gap="1.5rem" align="center">
-        <AiOutlineSearch size="1.5rem" />
-        <CartIcon />
-        <DarkModeButton />
-        <MenuButton />
+      <Flex
+        gap="2rem"
+        align="center"
+        w="40%"
+        display={{ base: "none", lg: "flex" }}
+      >
+        <Text color="#dedede">Productos</Text>
+        <Text color="#dedede">Nuevo</Text>
+        <Text color="#dedede">Ofertas</Text>
       </Flex>
+      <Heading as={RouterLink} to="/" size="md" color="#91e07b">
+        Empresa Muebles
+      </Heading>
+      <Flex
+        gap="2rem"
+        align="center"
+        w="40%"
+        justify="end"
+        display={{ base: "none", lg: "flex" }}
+      >
+        <SearchIcon />
+        <CartIcon />
+        {/* <DarkModeButton /> */}
+      </Flex>
+      <MenuButton />
     </Flex>
   );
 };
