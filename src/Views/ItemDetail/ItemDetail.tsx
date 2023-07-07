@@ -8,27 +8,18 @@ import {
   Box,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import SlidesShow from "./SlidesShow";
+import SlidesShow from "./SwiperDetail/SlidesShow";
 
 type Props = {};
 
 const ItemDetail = (props: Props) => {
   const images = [
     "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712423/Servicesc/Ledge_x2lnuh.jpg",
-    "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712423/Servicesc/Ledge_x2lnuh.jpg",
+    "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686713118/Servicesc/Jadin_Mueble_ywtkqj.jpg",
+    "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712752/Servicesc/Pared_Decorativa_cprjeu.jpg",
     "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712423/Servicesc/Ledge_x2lnuh.jpg",
     // Agrega más imágenes según necesites
   ];
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    centerMode: true,
-    variableWidth: true,
-  };
 
   return (
     <Flex justify="center">
@@ -66,9 +57,9 @@ const ItemDetail = (props: Props) => {
             Añadir al carro
           </Button>
         </Flex>
-        <Flex maxW="40rem">
-          <SlidesShow />
-        </Flex>
+        {/* <Flex maxW="40rem"> */}
+        <SlidesShow images={images} />
+        {/* </Flex> */}
       </Flex>
     </Flex>
   );

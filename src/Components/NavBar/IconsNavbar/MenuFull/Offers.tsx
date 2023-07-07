@@ -72,9 +72,9 @@ const Offers = () => {
           >
             Productos en Oferta
           </Text>
-          <Flex gap='4rem' maxW="80rem">
+          <Flex gap="4rem" maxW="80rem">
             {productOfferts.map((producto) => (
-              <Flex direction="column" gap="0.5rem" w="20%">
+              <Flex key={producto.id} direction="column" gap="0.5rem" w="20%">
                 <Image
                   aspectRatio="1"
                   borderRadius="1rem"

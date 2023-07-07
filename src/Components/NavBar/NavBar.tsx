@@ -24,7 +24,7 @@ const NavBar = () => {
       bg="rgba(30, 30, 30, 0.95)"
       boxShadow="0px 4px 8px rgba(0, 0, 0, 0.2)"
       px={{ base: "1rem", lg: "3rem" }}
-      zIndex="1"
+      zIndex="5"
       h="4rem"
     >
       <Flex align="center" justify="space-between" w="100%" maxW="80rem">
