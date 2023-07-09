@@ -9,8 +9,6 @@ import { uploadItemByName } from "../../redux/actionsApi";
 // type Props = {};
 
 const ItemDetail = () => {
-  const itemNameRender = useAppSelector((state) => state.items.itemName)[0];
-
   // const images = [
   //   "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712423/Servicesc/Ledge_x2lnuh.jpg",
   //   "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686713118/Servicesc/Jadin_Mueble_ywtkqj.jpg",
@@ -18,13 +16,14 @@ const ItemDetail = () => {
   //   "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712423/Servicesc/Ledge_x2lnuh.jpg",
   // ];
 
+  const dispatch = useAppDispatch();
   const { itemName } = useParams();
   const itemNameDetail = itemName || "sin itemNameDetail";
-
-  const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(uploadItemByName(itemNameDetail));
   }, []);
+
+  const itemNameRender = useAppSelector((state) => state.items.itemName)[0];
 
   return (
     <Flex justify="center">
@@ -40,9 +39,9 @@ const ItemDetail = () => {
           <Flex>
             <Badge bg="red.400">Nuevo</Badge>
           </Flex>
-          <Heading>{itemNameRender.name}</Heading>
+          <Heading>{itemNameRender?.name}</Heading>
           <Text my="1rem" fontSize="1.5rem" fontWeight="thin">
-            {itemNameRender.price}
+            {itemNameRender?.price}
           </Text>
           <Text mb="1rem">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
@@ -63,7 +62,7 @@ const ItemDetail = () => {
           </Button>
         </Flex>
         {/* <Flex maxW="40rem"> */}
-        <SlidesShow images={itemNameRender.image} />
+        <SlidesShow images={itemNameRender?.image} />
         {/* </Flex> */}
       </Flex>
     </Flex>
