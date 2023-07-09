@@ -24,10 +24,12 @@ const ItemsContainer = (props: Props) => {
       >
         {items.map((item: Item) => (
           <ItemCard
+            key={item.id}
             id={item.id}
             image={item.image}
             name={item.name}
             price={item.price}
+            category={item.category}
           />
         ))}
       </Grid>

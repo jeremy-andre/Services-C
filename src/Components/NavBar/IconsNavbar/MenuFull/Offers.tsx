@@ -42,7 +42,6 @@ const Offers = () => {
     },
   });
 
-  console.log(isOpen);
   return (
     <Flex direction="column" ref={ref}>
       <Flex onClick={onToggle} color="#dedede" cursor="pointer" gap="2rem">

@@ -2,9 +2,12 @@ import { Flex, Text, Image, Box, Button } from "@chakra-ui/react";
 import { AiOutlineShoppingCart } from "../../../../Icons";
 // import { useDispatch } from "react-redux";
 // import { useAppDispatch } from "../../../../redux/hooks";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../../../redux/actions";
+// import { addToCart } from "../../../../redux/actions";
 import { Item } from "../../../../redux/types";
+import { Link } from "react-router-dom";
+
+import { addToCart } from "../../../../redux/reducers/cartReducer";
+import { useAppDispatch } from "../../../../redux/hooks";
 
 const ItemCard = (props: Item) => {
   // const dispatch = useDispatch();
@@ -14,9 +17,10 @@ const ItemCard = (props: Item) => {
     image: props.image,
     name: props.name,
     price: props.price,
+    category: props.category,
   };
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handleAddToCart = () => {
     dispatch(addToCart(producto));
   };
@@ -28,7 +32,9 @@ const ItemCard = (props: Item) => {
         direction="column"
         //   filter={design.active ? "none" : "grayscale(90%)"}
       >
-        <Image src={props.image} alt="cardItem" aspectRatio={1} />
+        <Link to={`/products/${props.category}/${props.name}`}>
+          <Image src={"asd"} alt="cardItem" aspectRatio={1} />
+        </Link>
         <Text
           fontWeight="thin"
           py="1rem"
@@ -43,7 +49,7 @@ const ItemCard = (props: Item) => {
             py="1rem"
             fontSize={{ base: "1rem", md: "1.2rem" }}
           >
-            S/. {props.price}.00
+            S/. {props.price}
           </Text>
           <Flex justify="center" align="center">
             <Button gap="0.5rem" onClick={handleAddToCart}>

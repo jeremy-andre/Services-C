@@ -2,13 +2,13 @@ import { Flex, Text, Image } from "@chakra-ui/react";
 import { AiOutlineClose } from "../../../../Icons";
 import { Item } from "../../../../redux/types";
 
-import { useDispatch } from "react-redux";
-import { PopToCart } from "../../../../redux/actions";
+import { popToCart } from "../../../../redux/reducers/cartReducer";
+import { useAppDispatch } from "../../../../redux/hooks";
 
 const CartItemDrawer = (props: Item) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handlePopToCart = () => {
-    dispatch(PopToCart(props.id));
+    dispatch(popToCart(props.id));
   };
   return (
     <Flex gap="1rem" w="100%" justify="space-between">
@@ -19,7 +19,7 @@ const CartItemDrawer = (props: Item) => {
         aspectRatio="1"
         borderRadius="1rem"
       />
-      <Flex direction="column" justify="space-between" w="100%" >
+      <Flex direction="column" justify="space-between" w="100%">
         <Flex justify="space-between">
           <Text> {props.name} </Text>
           <Flex

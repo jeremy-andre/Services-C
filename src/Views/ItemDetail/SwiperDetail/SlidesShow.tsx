@@ -9,8 +9,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 // import "swiper/css/free-mode";
 // import "swiper/css/thumbs";
+
 type Props = {
-  images: [];
+  images: string;
 };
 
 const SlidesShow = ({ images }: Props) => {
@@ -64,7 +65,7 @@ const SlidesShow = ({ images }: Props) => {
         {images.map((imageUrl, index) => (
           <SwiperSlide key={index} style={{}}>
             <Image
-              src={imageUrl}
+              src={imageUrl.url}
               alt={`Slide ${index + 1}`}
               h="100%"
               w="100%"
@@ -106,7 +107,7 @@ const SlidesShow = ({ images }: Props) => {
         {images.map((imageUrl, index) => (
           <SwiperSlide key={index} style={{ aspectRatio: "1" }}>
             <Image
-              src={imageUrl}
+              src={imageUrl.url}
               alt={`Thumb ${index + 1}`}
               h="100%"
               w="100%"

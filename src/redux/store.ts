@@ -1,28 +1,38 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import rootReducer from "./reducers/reducers";
-import thunkMiddleware from "redux-thunk";
+import {
+  configureStore,
+  ThunkAction,
+  Action,
+  getDefaultMiddleware,
+} from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
+import storage from "redux-persist/lib/storage";
+import rootReducer from "./reducers/reducers";
 
-declare global {
-  interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
-  }
-}
-
+// Configura la persistencia
 const persistConfig = {
   key: "root",
   storage,
 };
+
+// Crea el persisted reducer
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// Crea el store con el persisted reducer y el middleware por defecto
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: getDefaultMiddleware({
+    serializableCheck: false, // Desactiva la verificación de acciones no serializables
+  }),
+});
 
-const store = createStore(
-  persistedReducer,
-  composeEnhancer(applyMiddleware(thunkMiddleware))
-);
+// Crea el persistor
+export const persistor = persistStore(store);
 
-const persistor = persistStore(store);
-
-export { store, persistor };
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppThunk<ReturnType = void> = ThunkAction<
+  ReturnType,
+  RootState,
+  unknown,
+  Action<string>
+>;

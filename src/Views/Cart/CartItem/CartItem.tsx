@@ -1,14 +1,14 @@
-import { Flex, Box, Image, Text, Select, Button } from "@chakra-ui/react";
+import { Flex, Box, Image, Text, Select } from "@chakra-ui/react";
 import { AiOutlineClose } from "../../../Icons";
 import { Item } from "../../../redux/types";
 
-import { useDispatch } from "react-redux";
-import { PopToCart } from "../../../redux/actions";
+import { popToCart } from "../../../redux/reducers/cartReducer";
+import { useAppDispatch } from "../../../redux/hooks";
 
 const CartItem = (props: Item) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const handlePopToCart = () => {
-    dispatch(PopToCart(props.id));
+    dispatch(popToCart(props.id));
   };
 
   return (

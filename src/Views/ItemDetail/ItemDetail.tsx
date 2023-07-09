@@ -1,26 +1,34 @@
-import {
-  Flex,
-  Image,
-  Heading,
-  Text,
-  Button,
-  Badge,
-  Box,
-} from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { Flex, Heading, Text, Button, Badge } from "@chakra-ui/react";
 import SlidesShow from "./SwiperDetail/SlidesShow";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+// import { getItemByName } from "../../redux/reducers/itemsReducer";
 
-type Props = {};
+import { uploadItemByName } from "../../redux/actionsApi";
+// type Props = {};
 
-const ItemDetail = (props: Props) => {
-  const images = [
-    "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712423/Servicesc/Ledge_x2lnuh.jpg",
-    "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686713118/Servicesc/Jadin_Mueble_ywtkqj.jpg",
-    "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712752/Servicesc/Pared_Decorativa_cprjeu.jpg",
-    "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712423/Servicesc/Ledge_x2lnuh.jpg",
-    // Agrega más imágenes según necesites
-  ];
+const ItemDetail = () => {
+  const itemNameRender = useAppSelector((state) => state.items.itemName)[0];
+  console.log(itemNameRender);
 
+  // const images = [
+  //   "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712423/Servicesc/Ledge_x2lnuh.jpg",
+  //   "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686713118/Servicesc/Jadin_Mueble_ywtkqj.jpg",
+  //   "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712752/Servicesc/Pared_Decorativa_cprjeu.jpg",
+  //   "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712423/Servicesc/Ledge_x2lnuh.jpg",
+  // ];
+
+  const { itemName } = useParams();
+  const itemNameDetail = itemName || "sin itemNameDetail";
+
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(uploadItemByName(itemNameDetail));
+  }, []);
+
+  console.log(itemNameRender.image, 99999999999999);
+  
   return (
     <Flex justify="center">
       <Flex
@@ -35,9 +43,9 @@ const ItemDetail = (props: Props) => {
           <Flex>
             <Badge bg="red.400">Nuevo</Badge>
           </Flex>
-          <Heading>Name Item Detail</Heading>
+          <Heading>{itemNameRender.name}</Heading>
           <Text my="1rem" fontSize="1.5rem" fontWeight="thin">
-            S/. 100.00
+            {itemNameRender.price}
           </Text>
           <Text mb="1rem">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
@@ -58,7 +66,7 @@ const ItemDetail = (props: Props) => {
           </Button>
         </Flex>
         {/* <Flex maxW="40rem"> */}
-        <SlidesShow images={images} />
+        <SlidesShow images={itemNameRender.image} />
         {/* </Flex> */}
       </Flex>
     </Flex>

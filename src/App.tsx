@@ -15,7 +15,7 @@ function App() {
           <Route path="/products">
             <Route index element={<Products />} />
             <Route path="/products/:category" element={<Products />} />
-            <Route path="/products/:category/:itemID" element={<ItemDetail />} />
+            <Route path="/products/:category/:itemName" element={<ItemDetail />} />
           </Route>
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
