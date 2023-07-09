@@ -3,13 +3,13 @@ import ItemCard from "../ItemCard.tsx/ItemCard";
 import { useSelector } from "react-redux";
 
 //--Items_Types--------------------------------------
-import { RootState } from "../../../../redux/reducers/reducers";
 import { Item } from "../../../../redux/types";
+import { useAppSelector } from "../../../../redux/hooks";
 
 type Props = {};
 
 const ItemsContainer = (props: Props) => {
-  const items = useSelector((state: RootState) => state.items.items);
+  const items = useAppSelector((state) => state.items.items);
 
   return (
     <Box maxW="80rem" mt="3rem">

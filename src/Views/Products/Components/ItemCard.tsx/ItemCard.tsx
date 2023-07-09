@@ -33,7 +33,7 @@ const ItemCard = (props: Item) => {
         //   filter={design.active ? "none" : "grayscale(90%)"}
       >
         <Link to={`/products/${props.category}/${props.name}`}>
-          <Image src={"asd"} alt="cardItem" aspectRatio={1} />
+          <Image src={props.image[0].url} alt="cardItem" aspectRatio={1} />
         </Link>
         <Text
           fontWeight="thin"
