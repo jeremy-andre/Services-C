@@ -24,6 +24,15 @@ const ItemDetail = () => {
   }, []);
 
   const itemNameRender = useAppSelector((state) => state.items.itemName)[0];
+  const isLoading = useAppSelector((state) => state.items.status === "loading");
+
+  if (isLoading) {
+    return <div>Cargando...</div>;
+  }
+
+  if (!itemNameRender) {
+    return <div>No se encontró el item.</div>;
+  }
 
   return (
     <Flex justify="center">
