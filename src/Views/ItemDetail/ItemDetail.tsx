@@ -10,7 +10,6 @@ import { uploadItemByName } from "../../redux/actionsApi";
 
 const ItemDetail = () => {
   const itemNameRender = useAppSelector((state) => state.items.itemName)[0];
-  console.log(itemNameRender);
 
   // const images = [
   //   "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712423/Servicesc/Ledge_x2lnuh.jpg",
@@ -27,8 +26,6 @@ const ItemDetail = () => {
     dispatch(uploadItemByName(itemNameDetail));
   }, []);
 
-  console.log(itemNameRender.image, 99999999999999);
-  
   return (
     <Flex justify="center">
       <Flex

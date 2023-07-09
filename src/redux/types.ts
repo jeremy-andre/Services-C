@@ -1,7 +1,7 @@
 //  Item Types ---------------------------------------------------
 export interface Item {
   id: number;
-  image: string[];
+  image: string;
   name: string;
   price: number;
   category: string;
