@@ -1,5 +1,5 @@
-import { Flex } from "@chakra-ui/react";
-import SlidesShow from "./components/SlidesShow";
+import { Flex, Spinner, Center } from "@chakra-ui/react";
+import SlidesShow from "./components/SlidesShow/SlidesShow";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -16,13 +16,19 @@ const ItemDetail = () => {
   }, []);
 
   const itemNameRender = useAppSelector((state) => state.items.itemName)[0];
-  // const isLoading = useAppSelector((state) => state.items.status === "loading");
+  const isLoading = useAppSelector((state) => state.items.status === "loading");
 
   if (!itemNameRender) {
     return <div>No se encontró el item.</div>;
   }
 
-  console.log(itemNameRender, 89888888888);
+  if (isLoading) {
+    return (
+      <Center h="40rem">
+        <Spinner size="xl" color="green.500" />
+      </Center>
+    );
+  }
 
   return (
     <Flex justify="center">
