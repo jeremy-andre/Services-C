@@ -10,10 +10,13 @@ const CartItemDrawer = (props: Item) => {
   const handlePopToCart = () => {
     dispatch(popToCart(props.id));
   };
+
+  console.log(props);
+  
   return (
     <Flex gap="1rem" w="100%" justify="space-between">
       <Image
-        src={props.image}
+        src={props.image[0].url}
         alt="cardItem"
         w="5rem"
         aspectRatio="1"
@@ -38,7 +41,7 @@ const CartItemDrawer = (props: Item) => {
             Precio:
           </Text>
           <Text textAlign="end" fontSize="0.9rem">
-            S/. {props.price}.00
+            S/. {props.price}
           </Text>
         </Flex>
       </Flex>

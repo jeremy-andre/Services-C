@@ -16,25 +16,23 @@ import {
 import { AiOutlineShoppingCart } from "../../../../Icons";
 import { Link as RouterLink } from "react-router-dom";
 
-import { useSelector } from "react-redux";
-import { RootState } from "../../../../redux/reducers/reducers";
-
 import CartItemDrawer from "./CartItemDrawer";
+import { useAppSelector } from "../../../../redux/hooks";
 
 type Props = {};
 
 const CartIcon = (props: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const cartItems = useSelector((state: RootState) => state.cart.cart);
+  const cartItems = useAppSelector((state) => state.cart.cart);
   return (
     <Flex>
       <Flex onClick={onOpen} cursor="pointer">
-        <AiOutlineShoppingCart color='#dedede' size="1.5rem" />
+        <AiOutlineShoppingCart color="#dedede" size="1.5rem" />
         <Flex
           position="absolute"
           borderRadius="full"
           transform="translate(1.3rem, -1rem)"
-          color='#dedede'
+          color="#dedede"
         >
           {Math.min(cartItems.length, 9999).toLocaleString()}
         </Flex>
@@ -54,6 +52,7 @@ const CartIcon = (props: Props) => {
                     image={item.image}
                     name={item.name}
                     price={item.price}
+                    category={item.category}
                   />
                   {index !== cartItems.length - 1 && (
                     <Divider

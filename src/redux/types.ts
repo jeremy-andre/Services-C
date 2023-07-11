@@ -1,10 +1,12 @@
 //  Item Types ---------------------------------------------------
 export interface Item {
+  category: string;
   id: number;
-  image: string;
+  image: {
+    url: string;
+  }[];
   name: string;
   price: number;
-  category: string;
 }
 
 //  Cart Types ---------------------------------------------------

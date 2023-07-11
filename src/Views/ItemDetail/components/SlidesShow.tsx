@@ -11,14 +11,18 @@ import "swiper/css/pagination";
 // import "swiper/css/thumbs";
 
 type Props = {
-  images: string;
+  image: {
+    url: string;
+  }[];
 };
 
-const SlidesShow = ({ images }: Props) => {
+const SlidesShow = ({ image }: Props) => {
   const [swiper, setSwiper] = useState(null);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  console.log(image);
+  
   const handleNext = () => {
     if (swiper) {
       swiper.slideNext();
@@ -37,14 +41,6 @@ const SlidesShow = ({ images }: Props) => {
     }
   };
 
-  // const images = [
-  //   "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712423/Servicesc/Ledge_x2lnuh.jpg",
-  //   "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686713118/Servicesc/Jadin_Mueble_ywtkqj.jpg",
-  //   "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712752/Servicesc/Pared_Decorativa_cprjeu.jpg",
-  //   "https://res.cloudinary.com/dzxiqsg9i/image/upload/v1686712752/Servicesc/Pared_Decorativa_cprjeu.jpg",
-  //   // Agrega más imágenes según necesites
-  // ];
-
   return (
     <Flex gap="1rem" h="30rem">
       <Swiper
@@ -62,7 +58,7 @@ const SlidesShow = ({ images }: Props) => {
           aspectRatio: "1",
         }}
       >
-        {images.map((imageUrl, index) => (
+        {image.map((imageUrl, index) => (
           <SwiperSlide key={index} style={{}}>
             <Image
               src={imageUrl.url}
@@ -104,7 +100,7 @@ const SlidesShow = ({ images }: Props) => {
         spaceBetween={10}
         // style={{ background: "red" }}
       >
-        {images.map((imageUrl, index) => (
+        {image.map((imageUrl, index) => (
           <SwiperSlide key={index} style={{ aspectRatio: "1" }}>
             <Image
               src={imageUrl.url}
