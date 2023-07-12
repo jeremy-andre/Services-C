@@ -34,7 +34,7 @@ const New = () => {
     },
   ];
 
-  const { isOpen, onToggle, onClose } = useDisclosure();
+  const { isOpen, onToggle, onClose, onOpen } = useDisclosure();
 
   const ref = useRef(null);
   useOutsideClick({
@@ -45,7 +45,12 @@ const New = () => {
   });
   return (
     <Flex direction="column" ref={ref}>
-      <Flex onClick={onToggle} color="#dedede" cursor="pointer" gap="2rem">
+      <Flex
+        onClick={onToggle}
+        color="rgba(100, 130, 100, 1)"
+        cursor="pointer"
+        gap="2rem"
+      >
         <Text>Nuevo</Text>
       </Flex>
 

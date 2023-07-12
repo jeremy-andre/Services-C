@@ -13,7 +13,7 @@ import {
   Text,
   Divider,
 } from "@chakra-ui/react";
-import { AiOutlineShoppingCart } from "../../../../Icons";
+import { BsHandbag } from "../../../../Icons";
 import { Link as RouterLink } from "react-router-dom";
 
 import CartItemDrawer from "./CartItemDrawer";
@@ -23,16 +23,17 @@ type Props = {};
 
 const CartIcon = (props: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
   const cartItems = useAppSelector((state) => state.cart.cart);
   return (
     <Flex>
       <Flex onClick={onOpen} cursor="pointer">
-        <AiOutlineShoppingCart color="#dedede" size="1.5rem" />
+        <BsHandbag color="rgba(100, 130, 100, 1)" size="1.3rem" />
         <Flex
           position="absolute"
           borderRadius="full"
           transform="translate(1.3rem, -1rem)"
-          color="#dedede"
+          color="rgba(100, 130, 100, 1)"
         >
           {Math.min(cartItems.length, 9999).toLocaleString()}
         </Flex>

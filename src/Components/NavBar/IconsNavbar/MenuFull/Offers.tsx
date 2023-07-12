@@ -44,7 +44,7 @@ const Offers = () => {
 
   return (
     <Flex direction="column" ref={ref}>
-      <Flex onClick={onToggle} color="#dedede" cursor="pointer" gap="2rem">
+      <Flex onClick={onToggle} color="rgba(100, 130, 100, 1)" cursor="pointer" gap="2rem">
         <Text>Ofertas</Text>
       </Flex>
 

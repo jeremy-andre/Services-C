@@ -36,7 +36,7 @@ const ProductsOffert = (props: Props) => {
 
   return (
     <Flex direction="column" pb="1rem" pt="1.5rem" gap="1.5rem">
-      <Flex justify="space-between" w="100%">
+      <Flex justify="space-between" w="100%" color="rgba(100, 130, 100, 1)">
         <Text>Productos en Oferta</Text>
         <Flex cursor="pointer" onClick={handleOnMin}>
           {show ? (

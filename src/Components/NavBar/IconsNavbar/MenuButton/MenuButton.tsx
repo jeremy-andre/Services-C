@@ -1,19 +1,34 @@
-import { useState } from "react";
-import { Collapse, Flex, useDisclosure, Text } from "@chakra-ui/react";
-import { AiOutlineMenu } from "../../../../Icons";
+import { useState, useRef } from "react";
+import {
+  Collapse,
+  Flex,
+  useDisclosure,
+  Text,
+  useOutsideClick,
+} from "@chakra-ui/react";
+import { CiMenuBurger } from "../../../../Icons";
 import { Link as RouterLink } from "react-router-dom";
 import SearchIcon from "../SearchIcon/SearchIcon";
 import ProductsOffert from "./ProductsOffert";
 import { AiOutlineShoppingCart, BiCategoryAlt } from "../../../../Icons";
 import ProductsNew from "./ProductsNew";
+import SearchBar from "../SearchIcon/SearchBar";
 
 const MenuButton = () => {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onToggle, onClose } = useDisclosure();
+
+  const ref = useRef(null);
+  useOutsideClick({
+    ref: ref,
+    handler: () => {
+      onClose();
+    },
+  });
 
   return (
-    <Flex direction="column" display={{ base: "flex", lg: "none" }}>
-      <Flex onClick={onToggle} color="#dedede" cursor="pointer">
-        <AiOutlineMenu size="1.5rem" />
+    <Flex direction="column" display={{ base: "flex", lg: "flex" }} ref={ref}>
+      <Flex onClick={onToggle} color="rgba(100, 130, 100, 1)" cursor="pointer">
+        <CiMenuBurger size="1.4rem" />
       </Flex>
 
       <Collapse in={isOpen}>
@@ -23,13 +38,13 @@ const MenuButton = () => {
           py="1rem"
           color="white"
           mt="1.5rem"
-          bg="rgba(30, 30, 30, 0.95)"
+          bg="rgba(255, 255, 255, 1)"
           shadow="md"
           position="absolute"
           left="0"
           right="0"
         >
-          <SearchIcon />
+          {/* <SearchBar /> */}
           <ProductsOffert />
           <ProductsNew />
           <Flex
@@ -41,7 +56,7 @@ const MenuButton = () => {
             gap="1rem"
             mb="1rem"
           >
-            <Text>Ver mi Carrito</Text>
+            <Text color="rgba(100, 130, 100, 1)">Ver mi Carrito</Text>
             <AiOutlineShoppingCart size="1.2rem" />
           </Flex>
           <Flex
@@ -53,7 +68,7 @@ const MenuButton = () => {
             gap="1rem"
             mb="1rem"
           >
-            <Text>Buscar por categoría</Text>
+            <Text color="rgba(100, 130, 100, 1)">Buscar por categoría</Text>
             <BiCategoryAlt size="1.2rem" />
           </Flex>
         </Flex>
