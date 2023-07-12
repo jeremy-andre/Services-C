@@ -34,6 +34,7 @@ const CartIcon = (props: Props) => {
           borderRadius="full"
           transform="translate(1.3rem, -1rem)"
           color="rgba(100, 130, 100, 1)"
+          userSelect="none"
         >
           {Math.min(cartItems.length, 9999).toLocaleString()}
         </Flex>
