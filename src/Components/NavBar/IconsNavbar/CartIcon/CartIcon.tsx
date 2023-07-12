@@ -26,7 +26,7 @@ const CartIcon = (props: Props) => {
 
   const cartItems = useAppSelector((state) => state.cart.cart);
   return (
-    <Flex>
+    <Flex display={{ base: "none", lg: "flex" }}>
       <Flex onClick={onOpen} cursor="pointer">
         <BsHandbag color="rgba(100, 130, 100, 1)" size="1.3rem" />
         <Flex

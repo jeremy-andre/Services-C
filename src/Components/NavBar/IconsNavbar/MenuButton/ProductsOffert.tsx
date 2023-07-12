@@ -35,18 +35,25 @@ const ProductsOffert = (props: Props) => {
   };
 
   return (
-    <Flex direction="column" pb="1rem" pt="1.5rem" gap="1.5rem">
-      <Flex justify="space-between" w="100%" color="rgba(100, 130, 100, 1)" >
-        <Text>Productos en Oferta</Text>
-        <Flex cursor="pointer" onClick={handleOnMin}>
+    <Flex direction="column" gap="1.5rem">
+      <Flex
+        justify="space-between"
+        align="center"
+        w="100%"
+        color="rgba(100, 130, 100, 1)"
+        onClick={handleOnMin}
+        cursor="pointer"
+      >
+        <Flex>
           {show ? (
             <AiOutlineLine size="1.2rem" />
           ) : (
             <AiOutlinePlus size="1.2rem" />
           )}
         </Flex>
+        <Text>Productos en Oferta</Text>
       </Flex>
-      {show && (
+      {/* {show && (
         <Flex justify="space-between">
           {productOfferts.map((producto) => (
             <Flex direction="column" gap="0.5rem" w="32%">
@@ -63,7 +70,7 @@ const ProductsOffert = (props: Props) => {
             </Flex>
           ))}
         </Flex>
-      )}
+      )} */}
     </Flex>
   );
 };

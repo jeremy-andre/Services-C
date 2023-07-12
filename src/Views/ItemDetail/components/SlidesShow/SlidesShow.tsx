@@ -42,7 +42,7 @@ const SlidesShow = ({ image }: Props) => {
           thumbs={{ swiper: thumbsSwiper }}
           pagination={{
             clickable: true,
-            renderBullet: (index, className) => `
+            renderBullet: (_, className) => `
               <span class="${className}" style="background-color: #4e7d3d;"></span>
             `,
           }}

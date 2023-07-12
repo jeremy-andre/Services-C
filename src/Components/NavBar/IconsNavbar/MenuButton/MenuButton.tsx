@@ -1,18 +1,24 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import {
   Collapse,
   Flex,
   useDisclosure,
-  Text,
   useOutsideClick,
 } from "@chakra-ui/react";
 import { CiMenuBurger } from "../../../../Icons";
-import { Link as RouterLink } from "react-router-dom";
-import SearchIcon from "../SearchIcon/SearchIcon";
 import ProductsOffert from "./ProductsOffert";
-import { AiOutlineShoppingCart, BiCategoryAlt } from "../../../../Icons";
 import ProductsNew from "./ProductsNew";
-import SearchBar from "../SearchIcon/SearchBar";
+import ViewCategory from "./ViewCategory";
+import ViewCart from "./ViewCart";
+import ViewAbout from "./ViewAbout";
+import ViewCollection from "./ViewCollection";
+import CustomDesigns from "./CustomsDesigns";
+import CardsContainerMenu from "./CardsContainerMenu";
+import TittlePoster from "./TittlePoster";
+
+// type Props = {
+//   onToggle: () => void;
+// };
 
 const MenuButton = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
@@ -26,50 +32,41 @@ const MenuButton = () => {
   });
 
   return (
-    <Flex direction="column" display={{ base: "flex", lg: "flex" }} ref={ref}>
+    <Flex direction="column" ref={ref}>
       <Flex onClick={onToggle} color="rgba(100, 130, 100, 1)" cursor="pointer">
         <CiMenuBurger size="1.4rem" />
       </Flex>
 
       <Collapse in={isOpen}>
         <Flex
-          direction="column"
-          px={{ base: "1rem", lg: "3rem" }}
-          py="1rem"
-          color="white"
-          mt="1.5rem"
-          bg="rgba(255, 255, 255, 1)"
-          shadow="md"
+          mt="1.25rem"
           position="absolute"
           left="0"
           right="0"
+          justify="center"
         >
-          {/* <SearchBar /> */}
-          <ProductsOffert />
-          <ProductsNew />
           <Flex
-            as={RouterLink}
-            to="/cart"
-            onClick={onToggle}
-            align="center"
+            px={{ base: "1rem", lg: "3rem" }}
+            maxW="105rem"
+            shadow="md"
+            bg="rgba(255, 255, 255, 1)"
+            w="100%"
             justify="space-between"
-            gap="1rem"
-            mb="1rem"
+            direction={{ base: "column", lg: "row" }}
+            gap={{ base: "1.3rem", lg: "none" }}
           >
-            <Text color="rgba(100, 130, 100, 1)">Ver mi Carrito</Text>
-            <AiOutlineShoppingCart size="1.2rem" />
-          </Flex>
-          <Flex
-            as={RouterLink}
-            to="/products"
-            onClick={onToggle}
-            align="center"
-            justify="space-between"
-            gap="1rem"
-            mb="1rem"
-          >
-            <Text color="rgba(100, 130, 100, 1)">Buscar por categoría</Text>
-            <BiCategoryAlt size="1.2rem" />
+            <TittlePoster />
+            <CardsContainerMenu />
+            <Flex direction="column" gap="2rem" w="13rem" pb="1rem" pt="1.5rem">
+              {/* <SearchBar /> */}
+              <ProductsOffert />
+              <ProductsNew />
+              <ViewCart onToggle={onToggle} />
+              <ViewCategory onToggle={onToggle} />
+              <CustomDesigns onToggle={onToggle} />
+              <ViewCollection onToggle={onToggle} />
+              <ViewAbout onToggle={onToggle} />
+            </Flex>
           </Flex>
         </Flex>
       </Collapse>

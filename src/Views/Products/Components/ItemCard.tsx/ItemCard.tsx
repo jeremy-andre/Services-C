@@ -30,6 +30,7 @@ const ItemCard = (props: Item) => {
       <Flex
         justify="center"
         direction="column"
+        bg="rgb(230, 230 ,230, 1)"
         //   filter={design.active ? "none" : "grayscale(90%)"}
       >
         <Link to={`/products/${props.category}/${props.name}`}>
@@ -38,12 +39,13 @@ const ItemCard = (props: Item) => {
         <Text
           fontWeight="thin"
           py="1rem"
+          px="1rem"
           fontSize={{ base: "1rem", md: "1.2rem" }}
           wordBreak="break-all"
         >
           {props.name}
         </Text>
-        <Flex justify="space-between" align="center">
+        <Flex justify="space-between" align="center" px="1rem">
           <Text
             fontWeight="normal"
             py="1rem"

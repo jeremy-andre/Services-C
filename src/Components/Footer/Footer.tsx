@@ -8,6 +8,7 @@ function Footer() {
       boxShadow="0px -4px 8px rgba(0, 0, 0, 0.2)"
       mt="auto"
       bg="rgba(30, 30, 30, 1)"
+      h="20rem"
     >
       <Flex justify="center" align="center">
         <Text fontSize="sm" color="gray.400" textAlign='center'>

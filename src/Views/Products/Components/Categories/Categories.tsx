@@ -99,7 +99,7 @@ const Categories = () => {
                 w="100%"
                 h="100%"
                 aspectRatio="1"
-                borderRadius="1rem"
+                borderRadius="0.5rem"
                 justify="center"
                 align="end"
                 filter={design.active ? "none" : "grayscale(90%)"}

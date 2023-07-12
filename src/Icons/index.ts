@@ -9,8 +9,13 @@ import {
 import { BiArrowFromLeft, BiDownArrow, BiCategoryAlt } from "react-icons/bi";
 import { LuArrowDownWideNarrow, LuArrowDownAZ } from "react-icons/lu";
 import { FiArrowUpRight, FiMenu } from "react-icons/fi";
-import { CiSearch, CiShoppingBasket, CiMenuBurger, CiGrid41 } from "react-icons/ci";
-import {BsHandbag} from "react-icons/bs"
+import {
+  CiSearch,
+  CiShoppingBasket,
+  CiMenuBurger,
+  CiGrid41,
+} from "react-icons/ci";
+import { BsHandbag } from "react-icons/bs";
 
 export {
   AiOutlineMenu,

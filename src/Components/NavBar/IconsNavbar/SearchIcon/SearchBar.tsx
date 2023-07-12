@@ -5,7 +5,7 @@ type Props = {};
 
 const SearchBar = (props: Props) => {
   return (
-    <Flex bg="red" display={{ base: "flex", lg: "none" }}>
+    <Flex >
       <InputGroup>
         <InputRightElement pointerEvents="none">
           <CiSearch color="rgba(100, 130, 100, 0.6)" size="1.5rem" />

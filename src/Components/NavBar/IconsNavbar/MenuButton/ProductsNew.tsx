@@ -1,4 +1,4 @@
-import { Flex, Button, Text, Image } from "@chakra-ui/react";
+import { Flex, Button, Text, Image, Grid } from "@chakra-ui/react";
 import { useState } from "react";
 import { AiOutlinePlus, AiOutlineLine } from "../../../../Icons";
 
@@ -35,21 +35,33 @@ const ProductsNew = (props: Props) => {
   };
 
   return (
-    <Flex direction="column" pb="1rem" gap="1.5rem">
-      <Flex justify="space-between" w="100%" color="rgba(100, 130, 100, 1)">
-        <Text>Nuevos Productos</Text>
-        <Flex cursor="pointer" onClick={handleOnMin}>
+    <Flex direction="column" gap="1.5rem">
+      <Flex
+        justify="space-between"
+        align="center"
+        w="100%"
+        color="rgba(100, 130, 100, 1)"
+        onClick={handleOnMin}
+        cursor="pointer"
+      >
+        <Flex>
           {show ? (
             <AiOutlineLine size="1.2rem" />
           ) : (
             <AiOutlinePlus size="1.2rem" />
           )}
         </Flex>
+        <Text>Nuevos Productos</Text>
       </Flex>
-      {show && (
-        <Flex justify="space-between">
+      {/* {show && (
+        <Grid
+          templateColumns="repeat(6, 1fr)"
+          templateRows="repeat(1, 1fr)"
+          gap="1.5rem"
+          w="80%"
+        >
           {productOfferts.map((producto) => (
-            <Flex direction="column" gap="0.5rem" w="32%">
+            <Flex direction="column" gap="0.5rem">
               <Image
                 aspectRatio="1"
                 borderRadius="1rem"
@@ -62,8 +74,8 @@ const ProductsNew = (props: Props) => {
               </Flex>
             </Flex>
           ))}
-        </Flex>
-      )}
+        </Grid>
+      )} */}
     </Flex>
   );
 };
